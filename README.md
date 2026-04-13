@@ -79,6 +79,17 @@ mininet> sh ovs-ofctl dump-flows s1
 > Flow rules installed by POX controller on switch s1.
 <img width="745" height="544" alt="image" src="https://github.com/user-attachments/assets/2d8e676f-69a1-42bf-832c-3e014f180000" />
 
+### Test 5: Throughput Measurement (iperf h1 → h2)
+> Bandwidth measured between authorized hosts using iperf.
+<img width="720" height="223" alt="image" src="https://github.com/user-attachments/assets/b73a2009-80ea-4dea-8958-831e93689ea0" />
+
+## Regression Test
+Re-running pingall after flow rules are installed confirms policy consistency:
+- h1 ↔ h2 always reachable
+- h3 always blocked
+- Result is deterministic across multiple runs
+<img width="403" height="268" alt="image" src="https://github.com/user-attachments/assets/b16cc7ec-adc3-4ea1-82dc-4a9c9e73be0a" />
+
 ## References
 - Mininet: http://mininet.org
 - POX Controller: https://github.com/noxrepo/pox
