@@ -1,5 +1,5 @@
 # SDN-Based Access Control System
-**Course Project | SDN Mininet Simulation**
+**Computer Networks | SDN Mininet Simulation**
 
 ## Problem Statement
 Implement an SDN-based Access Control System where only whitelisted 
@@ -62,7 +62,22 @@ mininet> sh ovs-ofctl dump-flows s1
 - pingall shows 66% dropped (only h3 traffic blocked)
 
 ## Proof of Execution
-[Add your screenshots here]
+
+### Test 1: Authorized Hosts Communication (h1 → h2)
+> h1 and h2 successfully ping each other — whitelist rule working correctly.
+<img width="663" height="209" alt="image" src="https://github.com/user-attachments/assets/b8d5333d-6942-4349-b154-7e7461bd8659" />
+
+### Test 2: Unauthorized Host Blocked (h3 → h1)
+> h3 gets 100% packet loss — deny rule working correctly.
+<img width="749" height="230" alt="image" src="https://github.com/user-attachments/assets/50c49cdb-d40a-4f35-b7a8-577003fee26c" />
+
+### Test 3: Full Network Ping Test (pingall)
+> h1 ↔ h2 reachable, h3 completely blocked — 66% dropped as expected.
+<img width="426" height="139" alt="image" src="https://github.com/user-attachments/assets/75854eea-461e-4f31-b6be-d1ad076263ac" />
+
+### Test 4: OpenFlow Flow Table (ovs-ofctl dump-flows s1)
+> Flow rules installed by POX controller on switch s1.
+<img width="745" height="544" alt="image" src="https://github.com/user-attachments/assets/2d8e676f-69a1-42bf-832c-3e014f180000" />
 
 ## References
 - Mininet: http://mininet.org
